@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'client';
+
+  ngOnInit() {
+    window.Echo.channel('hello-channel').listen('HelloEvent', (e: any) => {
+      console.log(e);
+    });
+  }
 }
