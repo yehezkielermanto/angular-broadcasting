@@ -17,6 +17,7 @@ window.Echo = new Echo({
   wssPort: environment.PUSHER_PORT ?? 443,
   forceTLS: (environment.PUSHER_SCHEME ?? 'https') === 'https',
   enabledTransports: ['ws', 'wss'],
+  authEndpoint: `${environment.PUSHER_SCHEME}://${environment.PUSHER_HOST}:8000/broadcasting/auth`
 });
 
 platformBrowserDynamic().bootstrapModule(AppModule)
