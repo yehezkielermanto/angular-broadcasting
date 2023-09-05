@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+// styles.scss
+
+@use "@angular/material" as mat;
+
+@use "./styles/themes/light";
+
+@include mat.core();
+
+@include mat.core-theme(light.$my-app-light-theme);
+@include mat.button-theme(light.$my-app-light-theme);
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

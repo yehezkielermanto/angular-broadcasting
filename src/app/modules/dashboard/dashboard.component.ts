@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
   message: string = "";
 
   ngOnInit(): void {
-    if(sessionStorage.getItem('token')){
+    if (sessionStorage.getItem('token')) {
       let token = sessionStorage.getItem('token');
       window.Echo.options.auth.headers.Authorization = `Bearer ${token}`;
     }

@@ -1,9 +1,17 @@
 <h1>{{title}} Side</h1>
 <!-- login form -->
-<div>
-    <input [(ngModel)]="email" required>
-    <br />
-    <input type="password" [(ngModel)]="password" required>
-    <br />
-    <button (click)="submitForm()">Login</button>
+<div class="form">
+    <p class="input">
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="email" required>
+        </mat-form-field>
+    </p>
+    <p class="input">
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput type="password" [(ngModel)]="password" required>
+        </mat-form-field>
+    </p>
+    <button mat-raised-button color="primary" (click)="submitForm()">Login</button>
 </div>

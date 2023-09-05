@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from 'src/app/interfaces/user';
+import { User } from 'src/app/shared/user';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -32,7 +32,7 @@ export class LoginComponent {
       password: this.password,
       access_token: ''
     };
-    
+
     this.userService.login(data).subscribe((res) => {
       sessionStorage.setItem('token', res.access_token)
       window.Echo.options.auth.headers.Authorization = `Bearer ${res?.access_token}`;
