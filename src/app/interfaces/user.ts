@@ -1,4 +1,6 @@
 export class User{
+    id?:number;
     email?: string;
-    password?: string
+    password?: string;
+    access_token: string = '';
 }

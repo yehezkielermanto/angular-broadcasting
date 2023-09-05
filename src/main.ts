@@ -6,7 +6,6 @@ import { environment } from './environments/environment';
 import Echo from 'laravel-echo';
 import Pusher from 'pusher-js';
 
-
 window.Pusher = Pusher;
 window.Echo = new Echo({
   broadcaster: 'pusher',
@@ -17,7 +16,12 @@ window.Echo = new Echo({
   wssPort: environment.PUSHER_PORT ?? 443,
   forceTLS: (environment.PUSHER_SCHEME ?? 'https') === 'https',
   enabledTransports: ['ws', 'wss'],
-  authEndpoint: `${environment.PUSHER_SCHEME}://${environment.PUSHER_HOST}:8000/broadcasting/auth`
+  authEndpoint: `${environment.PUSHER_SCHEME}://${environment.PUSHER_HOST}:8000/broadcasting/auth`,
+  auth: {
+    headers: {
+      Authorization: ''
+    }
+  }
 });
 
 platformBrowserDynamic().bootstrapModule(AppModule)

@@ -1,6 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { UserService } from './services/user.service';
-import { User } from './interfaces/user';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,37 +7,8 @@ import { User } from './interfaces/user';
 })
 
 
-export class AppComponent implements OnInit {
-  title = 'Client';
-  message: string = '';
-  userId = 1;
-  email?: string = '';
-  password?: string = '';
-  status: boolean = false;
+export class AppComponent{
+  
 
-  constructor(
-    private cdr: ChangeDetectorRef,
-    public userService: UserService
-  ) { };
-
-  ngOnInit() {
-    // window.Echo.channel('hello-channel').listen('HelloEvent', (e: any) => {
-    //   console.log(e.message)
-    //   this.message = e.message;
-    //   this.cdr.detectChanges();
-    // });
-  }
-
-  submitForm() {
-    let data: User = {
-      email: this.email,
-      password: this.password
-    };
-    this.userService.login(data).subscribe((res) => {
-      console.log(res);
-      window.Echo.private(`hello-private.${this.userId}`).listen('HelloEvent', (e: any) => {
-        console.log(e)
-      })
-    });
-  }
+  constructor() { };
 }

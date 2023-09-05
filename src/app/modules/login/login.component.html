@@ -1,0 +1,9 @@
+<h1>{{title}} Side</h1>
+<!-- login form -->
+<div>
+    <input [(ngModel)]="email" required>
+    <br />
+    <input type="password" [(ngModel)]="password" required>
+    <br />
+    <button (click)="submitForm()">Login</button>
+</div>
